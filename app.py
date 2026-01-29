@@ -2,9 +2,7 @@ import streamlit as st
 from utils import extract_text_from_pdf
 from agents import resume_agent, jd_agent, matching_agent, qa_agent
 
-# -----------------------------
-# Session State Initialization
-# -----------------------------
+
 if "candidate" not in st.session_state:
     st.session_state.candidate = None
 
@@ -14,9 +12,6 @@ if "job" not in st.session_state:
 if "match" not in st.session_state:
     st.session_state.match = None
 
-# -----------------------------
-# Page Config
-# -----------------------------
 st.set_page_config(
     page_title="AI HR Resume Copilot",
     layout="wide"
@@ -27,9 +22,7 @@ st.caption("Upload a resume and job description to get structured, explainable r
 
 st.divider()
 
-# -----------------------------
-# 1. Resume Upload & Analysis
-# -----------------------------
+
 st.subheader("1. Upload Resume")
 
 resume_file = st.file_uploader("Upload resume (PDF)", type=["pdf"])
@@ -68,9 +61,7 @@ if st.session_state.candidate:
 
 st.divider()
 
-# -----------------------------
-# 2. Job Description & Matching
-# -----------------------------
+
 st.subheader("2. Job Description")
 
 jd_text = st.text_area(
@@ -132,9 +123,7 @@ if st.session_state.match:
 
 st.divider()
 
-# -----------------------------
-# 3. Recruiter Q&A Copilot
-# -----------------------------
+
 st.subheader("3. Recruiter Q&A Copilot")
 
 question = st.text_input(
